@@ -1,0 +1,24 @@
+{
+  "name": "container-vue-element",
+  "version": "1.0.3",
+  "description": "vue element 饿了么 后台容器\"",
+  "main": "./src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CoreCMF/container-vue-element.git"
+  },
+  "keywords": [
+    "vue",
+    "element",
+    "container"
+  ],
+  "author": "bigRcos",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CoreCMF/container-vue-element/issues"
+  },
+  "homepage": "https://github.com/CoreCMF/container-vue-element#readme"
+}
