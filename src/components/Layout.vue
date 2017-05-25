@@ -1,5 +1,5 @@
 <template>
-  <div class="layout">
+  <div class="layout ">
     <div class="layout-menu-left">
       <layout-sidebar/>
     </div>
@@ -37,6 +37,14 @@
     position: relative;
     overflow: hidden;
     display: -webkit-box;
+    &.hideSidebar {
+      >.layout-menu-left {
+        width: 50px;
+        >.sidebar-container {
+          width:50px;
+        }
+      }
+    }
   }
   .layout-menu-left{
     width: 200px;

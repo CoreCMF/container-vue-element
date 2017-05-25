@@ -1,6 +1,6 @@
 <template>
-    <el-menu default-active="1-4-1" theme="dark">
-      <div class="layout-logo-left">CoreCMF 后台管理</div>
+    <el-menu default-active="1-4-1" theme="dark" class="sidebar-container">
+      <div class="layout-logo-left">CoreCMF</div>
       <el-submenu index="1">
         <template slot="title">导航一</template>
         <el-menu-item-group title="分组一">
@@ -55,16 +55,15 @@
 <style lang="scss" scoped>
   @import  './../../assets/sass/mixin.scss';
   .layout-logo-left {
-    background: #5b6270;
-    border-radius: 3px;
+    background-color: #d73925;
+    height: 50px;
+    line-height: 50px;
+    font-size: 20px;
     color: #fff;
-    height: 30px;
-    line-height: 30px;
-    margin: 15px auto;
     text-align: center;
-    width: 90%;
+    width: 100%;
   }
-  .el-menu {
+  .sidebar-container {
     position: fixed;
     width:200px;
     min-height: 100%;
