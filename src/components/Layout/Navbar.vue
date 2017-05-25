@@ -31,7 +31,7 @@
     color: #fff;
     &:hover{
       background-color: #d73925;
-      border-bottom: 2px solid #fff;
+      border-bottom-color: #fff;
     }
   }
   .el-menu-item{
@@ -45,7 +45,7 @@
     }
   }
   .el-menu-item.is-active{
-    border-bottom: 2px solid #fff;
+    background-color: #d73925;
   }
   .el-menu{
     background-color: #dd4b39;
