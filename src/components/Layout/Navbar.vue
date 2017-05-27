@@ -13,7 +13,7 @@
     name: 'navbar',
     methods: {
       toggleClick() {
-        console.log('test')
+        this.$emit('sidebar')
       }
     }
   }

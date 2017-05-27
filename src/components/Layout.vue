@@ -1,10 +1,10 @@
 <template>
-  <div class="layout ">
-    <div class="layout-menu-left">
+  <div class="layout" :class="{ hideSidebar: isSidebar }">
+    <div class="layout-sidebar-left">
       <layout-sidebar/>
     </div>
     <div class="layout-right">
-      <layout-navbar/>
+      <layout-navbar  v-on:sidebar="toggleClick"/>
       <layout-breadcrumb/>
       <layout-content/>
       <layout-footer/>
@@ -25,6 +25,16 @@
       layoutBreadcrumb,
       layoutContent,
       layoutFooter
+    },
+    data() {
+      return {
+        isSidebar:false
+      }
+    },
+    methods: {
+      toggleClick() {
+        this.isSidebar = !this.isSidebar
+      }
     }
   }
 </script>
@@ -38,15 +48,23 @@
     overflow: hidden;
     display: -webkit-box;
     &.hideSidebar {
-      >.layout-menu-left {
+      >.layout-sidebar-left {
         width: 50px;
         >.sidebar-container {
-          width:50px;
+          >.layout-logo-lg{
+            display: none;
+          }
+          >.layout-logo-mini{
+            display: block;
+          }
+          >.sidebar-menu {
+            width:50px;
+          }
         }
       }
     }
   }
-  .layout-menu-left{
+  .layout-sidebar-left{
     width: 200px;
   }
   .layout-right{
