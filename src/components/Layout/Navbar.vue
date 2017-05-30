@@ -35,8 +35,8 @@
     }
   }
   .el-menu-item{
-    line-height: 50px;
-    height: 50px;
+    line-height: 50px!important;
+    height: 50px!important;
     color: #fff;
     border-bottom: 2px solid transparent;
     &:hover{
