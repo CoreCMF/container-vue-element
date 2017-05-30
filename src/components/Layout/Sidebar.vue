@@ -81,6 +81,7 @@
     overflow-x: hidden;
     @include scrollBar;
   }
+  /** 对饿了么菜单框架配色进行调整bengin **/
   .el-menu {
     border-radius: 0px;
   }
@@ -104,4 +105,6 @@
   .el-menu--horizontal.el-menu--dark .el-submenu .el-menu-item.is-active, .el-menu-item.is-active{
     color:#fff;
   }
+  /** 对饿了么菜单框架配色进行调整end **/
+
 </style>

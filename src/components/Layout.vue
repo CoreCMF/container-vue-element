@@ -47,10 +47,34 @@
     position: relative;
     overflow: hidden;
     display: -webkit-box;
+    /* 收缩侧栏后的样式begin */
     &.hideSidebar {
       >.layout-sidebar-left {
         width: 50px;
         >.sidebar-container {
+          >.el-menu--dark {
+            >.el-submenu{
+              >.el-submenu__title{
+                >span{
+                  display: none;
+                }
+                >.el-submenu__icon-arrow{
+                  display: none;
+                }
+              }
+              >.el-menu{
+                display: none;
+              }
+              &:hover{
+                >.el-menu{
+                  display: block;
+                  position: absolute;
+                  left: 50px;
+                }
+              }
+            }
+            overflow-x:visible;
+          }
           >.layout-logo-lg{
             display: none;
           }
@@ -63,6 +87,7 @@
         }
       }
     }
+    /* 收缩侧栏后的样式end */
   }
   .layout-sidebar-left{
     width: 200px;
