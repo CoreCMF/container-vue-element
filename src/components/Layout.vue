@@ -61,15 +61,35 @@
                 >.el-submenu__icon-arrow{
                   display: none;
                 }
+                display: -webkit-box;
               }
               >.el-menu{
-                display: none;
+                display: none !important;
               }
               &:hover{
+                >.el-submenu__title{
+                  >span{
+                    margin-left: 22px;
+                    -moz-box-flex:1.0;
+                    -webkit-box-flex: 1.0;
+                    display: block;
+                  }
+                  >.el-submenu__icon-arrow{
+                    padding-top: 5px;
+                    display: block;
+                  }
+                  background-color: #222d32;
+                  width: 230px;
+                  border-top-right-radius: 4px;
+                }
                 >.el-menu{
-                  display: block;
+                  display: block !important;
                   position: absolute;
+                  width: 150px;
                   left: 50px;
+                  padding-top: 5px;
+                  padding-bottom: 5px;
+                  border-bottom-right-radius: 4px;
                 }
               }
             }
@@ -90,7 +110,7 @@
     /* 收缩侧栏后的样式end */
   }
   .layout-sidebar-left{
-    width: 200px;
+    width: 230px;
   }
   .layout-right{
     -moz-box-flex:1.0;
