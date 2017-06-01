@@ -156,8 +156,8 @@
       position: absolute;
       left: 55px;
     }
-    .text-success{
-      color: #3c763d;
-    }
+  }
+  .text-success{
+    color: #3c763d;
   }
 </style>
