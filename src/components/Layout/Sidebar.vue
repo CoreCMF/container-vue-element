@@ -3,15 +3,6 @@
     <div class="layout-logo-lg">CoreCMF</div>
     <div class="layout-logo-mini">Core</div>
     <el-menu default-active="1-4-1" theme="dark" class="sidebar-menu">
-      <div class="user-panel">
-        <div class="pull-left image">
-          <img src="https://adminlte.io/themes/AdminLTE/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
-        </div>
-        <div class="pull-left info">
-          <p>Alexander Pierce</p>
-          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
-        </div>
-      </div>
       <el-submenu index="1">
         <template slot="title"><i class="el-icon-message"></i><span>Dashboard</span></template>
           <el-menu-item index="1-1">选项1</el-menu-item>
@@ -88,6 +79,7 @@
     top: 50px;
     bottom:0;
     overflow-x: hidden;
+    transition: transform .3s ease-in-out,width .3s ease-in-out;
     @include scrollBar;
   }
   /** 对饿了么菜单框架配色进行调整bengin **/
@@ -121,43 +113,4 @@
     color:#fff;
   }
   /** 对饿了么菜单框架配色进行调整end **/
-  .user-panel{
-    position:relative;
-    height: 45px;
-    padding: 10px;
-    position:relative;
-    >.pull-left{
-      float:left;
-    }
-    >.image{
-      >img{
-        width:100%;
-        max-width: 45px;
-        height: auto;
-      }
-      >.img-circle{
-        border-radius: 50%;
-      }
-    }
-    >.info{
-      >a{
-        color: #fff;
-        text-decoration: none;
-        padding-right: 5px;
-        margin-top: 3px;
-        font-size: 11px;
-      }
-      >p{
-        font-weight: 600;
-        margin-bottom: 9px;
-      }
-      padding:5px 5px 5px 15px;
-      line-height: 1;
-      position: absolute;
-      left: 55px;
-    }
-  }
-  .text-success{
-    color: #3c763d;
-  }
 </style>

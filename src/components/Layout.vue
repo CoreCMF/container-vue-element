@@ -39,6 +39,7 @@
   }
 </script>
 <style lang="scss">
+  @import  './../assets/sass/mixin.scss';
   body{
     margin: 0;
   }
@@ -85,7 +86,7 @@
                 >.el-menu{
                   display: block !important;
                   position: absolute;
-                  width: 150px;
+                  width: 180px;
                   left: 50px;
                   padding-top: 5px;
                   padding-bottom: 5px;
@@ -111,6 +112,7 @@
   }
   .layout-sidebar-left{
     width: 230px;
+    transition: transform .3s ease-in-out,width .3s ease-in-out;
   }
   .layout-right{
     -moz-box-flex:1.0;
