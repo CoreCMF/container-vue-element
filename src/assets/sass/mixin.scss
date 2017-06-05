@@ -1,7 +1,7 @@
-$screen-xs-max: 768;
-$screen-sm-min: 768;
-$screen-md-min: 970;
-$screen-lg-min: 1170;
+$screen-xs-max: 768px;
+$screen-sm-min: 768px;
+$screen-md-min: 970px;
+$screen-lg-min: 1170px;
 
 @mixin scrollBar {
   &::-webkit-scrollbar-track-piece {

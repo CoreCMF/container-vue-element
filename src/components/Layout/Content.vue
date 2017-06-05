@@ -12,7 +12,8 @@
 </script>
 <style lang="scss" scoped>
   .layout-content{
-    min-height: 200px;
+    flex: 1 0 auto;
+    min-height: 300px;
     margin: 15px;
     overflow: hidden;
     background: #fff;
