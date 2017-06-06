@@ -1,8 +1,8 @@
 <template>
-  <div class="wrapper skin-red" :class="{ hideSidebar: isSidebar }">
+  <div class="wrapper skin-red" :class="{ hideSidebar: hideSidebar, openSidebar: openSidebar }">
     <layoutHeader v-on:sidebar="toggleClick"/>
     <layoutSidebar/>
-    <div class="layout-main">
+    <div class="layout-main" @click="closeSidebar">
       <layout-breadcrumb/>
       <layout-content/>
       <layout-footer/>
@@ -26,12 +26,22 @@
     },
     data() {
       return {
-        isSidebar:false
+        collapseScreenSize:768,
+        hideSidebar:false,
+        openSidebar:false,
       }
     },
     methods: {
       toggleClick() {
-        this.isSidebar = !this.isSidebar
+        let offsetWidth = document.body.offsetWidth;
+        if (offsetWidth > this.collapseScreenSize) {
+          this.hideSidebar = !this.hideSidebar
+        }else{
+          this.openSidebar = !this.openSidebar
+        }
+      },
+      closeSidebar() {
+        this.openSidebar = false
       }
     }
   }
@@ -49,8 +59,34 @@
     display: -webkit-flex;
     display: flex;
     flex-direction: column;
+  }
+  .layout-main{
+    flex: 1 0 auto;
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: column;
+    margin-left: 230px;
+    transition: transform .3s ease-in-out,margin-left 0.3s ease-in-out;
+  }
+  .skin-red{
+    >.main-header{
+      background-color: #dd4b39;
+      >.logo{
+        background-color: #d73925;
+        color: #fff;
+        border-bottom: 0 solid transparent;
+      }
+      >.navbar{
+        background-color: #dd4b39;
+        >.menu-navbar{
+          background-color: #dd4b39;
+        }
+      }
+    }
+  }
+  @media (min-width: $screen-xs-max) {
     /* 收缩侧栏后的样式begin */
-    &.hideSidebar {
+    .hideSidebar {
       >.main-header{
         >.logo{
           width: 50px;
@@ -113,36 +149,30 @@
     }
     /* 收缩侧栏后的样式end */
   }
-  .layout-main{
-    flex: 1 0 auto;
-    display: -webkit-flex;
-    display: flex;
-    flex-direction: column;
-    margin-left: 230px;
-    transition: margin-left 0.3s ease-in-out;
-  }
-  .skin-red{
-    >.main-header{
-      >.logo{
-        background-color: #d73925;
-        color: #fff;
-        border-bottom: 0 solid transparent;
-      }
-      >.navbar{
-        background-color: #dd4b39;
-        >.menu-navbar{
-          background-color: #dd4b39;
-        }
-      }
-    }
-  }
-
   @media (max-width: $screen-xs-max) {
     .sidebar-menu{
+      top: 100px!important;
       transform: translate(-230px, 0);
     }
     .layout-main{
       margin-left: 0;
     }
+    .main-header{
+      flex-direction: column;
+      >.logo{
+        width: 100%!important;
+      }
+    }
+    /* 收缩侧栏后的样式begin */
+    .openSidebar {
+      >.sidebar-menu{
+        top: 100px;
+        transform: translate( 0, 0);
+      }
+      .layout-main{
+        transform: translate(230px, 0);
+      }
+    }
+    /* 收缩侧栏后的样式end */
   }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <header class="main-header">
-    <a href="index2.html" class="logo">
+    <a href="/" class="logo">
       <span class="logo-mini"><b>C</b>MF</span>
       <span class="logo-lg"><b>Core</b>CMF</span>
     </a>
@@ -24,12 +24,13 @@
     }
   }
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
   .main-header{
     display: -webkit-flex;
     display: flex;
     flex: 0 0 auto;
     >.logo{
+      flex: 0 0 auto;
       height: 50px;
       font-size: 20px;
       line-height: 50px;
@@ -48,7 +49,7 @@
       }
     }
     >.navbar{
-      flex:1;
+      flex: 1 0 auto;
       display: -webkit-flex;
       display: flex;
       min-height: 50px;

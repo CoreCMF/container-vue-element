@@ -11,7 +11,7 @@
           </el-submenu>
       </el-submenu>
       <el-submenu index="2">
-        <template slot="title">导航一</template>
+        <template slot="title"><i class="el-icon-message"></i><span>Dashboard</span></template>
         <el-menu-item-group title="分组一">
           <el-menu-item index="2-1">选项1</el-menu-item>
           <el-menu-item index="2-2">选项2</el-menu-item>
@@ -25,7 +25,7 @@
         </el-submenu>
       </el-submenu>
       <el-submenu index="2">
-        <template slot="title">导航一</template>
+       <template slot="title"><i class="el-icon-message"></i><span>Dashboard</span></template>
         <el-menu-item-group title="分组一">
           <el-menu-item index="2-1">选项1</el-menu-item>
           <el-menu-item index="2-2">选项2</el-menu-item>
