@@ -17,9 +17,23 @@
 <script>
   export default {
     name: 'header',
+    created() {
+      this.initData()
+    },
     methods: {
       toggleClick() {
         this.$emit('sidebar')
+      },
+      initData() {
+        let _this = this
+        let apiUrl = this.$store.state.mainData.apiUrl.topNav
+        let thenFunction = function(Response) {
+          console.log(Response.data)
+        }
+
+        let catchFunction = function(error) {
+        }
+        this.$store.dispatch('getData',{ 'url':apiUrl, thenFunction, catchFunction })
       }
     }
   }
