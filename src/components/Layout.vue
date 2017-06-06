@@ -32,6 +32,7 @@
       }
     },
     methods: {
+      /* [toggleClick 根据屏幕宽度 折叠或者收缩侧栏] */
       toggleClick() {
         let offsetWidth = document.body.offsetWidth;
         if (offsetWidth > this.collapseScreenSize) {
@@ -40,6 +41,7 @@
           this.openSidebar = !this.openSidebar
         }
       },
+      /* [closeSidebar 关闭侧栏] */
       closeSidebar() {
         this.openSidebar = false
       }
