@@ -43,8 +43,27 @@
   </el-menu>
 </template>
 <script>
+  import { mapState } from 'vuex'
   export default {
-    name: 'sidebar'
+    name: 'sidebar',
+    watch: {
+      apiUrl:'initData'
+    },
+    computed: {
+      ...mapState({
+        apiUrl: state => state.api.sidebar,
+      }),
+    },
+    methods: {
+      initData(){
+        let _this = this
+        let apiUrl = this.apiUrl
+        let thenFunction = function(Response) {
+          console.log(Response);
+        }
+        this.$store.dispatch('getData',{ apiUrl, thenFunction })
+      }
+    }
   }
 </script>
 <style lang="scss">

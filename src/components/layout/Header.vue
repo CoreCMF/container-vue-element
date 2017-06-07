@@ -38,10 +38,7 @@
           _this.show = true
           _this.handleSelect(_this.defaultActive)  //初始化激活一次
         }
-
-        let catchFunction = function(error) {
-        }
-        this.$store.dispatch('getData',{ 'url':apiUrl, thenFunction, catchFunction })
+        this.$store.dispatch('getData',{ apiUrl, thenFunction })
       },
       /* 通过键值传递侧栏通信api url */
       handleSelect(key) {
