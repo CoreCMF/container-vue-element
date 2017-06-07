@@ -6,7 +6,7 @@
     </a>
     <nav class="navbar">
       <a class="toggle" @click="toggleClick"><i class="fa fa-sliders"></i></a>
-      <el-menu v-if="show" :default-active="defaultActive" class="menu-navbar" mode="horizontal">
+      <el-menu v-if="show" :default-active="defaultActive" @select="handleSelect" class="menu-navbar" mode="horizontal">
         <el-menu-item v-for="topNav in topNavs" :key="topNav.name" :index="topNav.name"> <i :class="topNav.icon"></i> {{ topNav.title }}</el-menu-item>
       </el-menu>
     </nav>
@@ -36,11 +36,16 @@
           _this.topNavs = Response.data.list
           _this.defaultActive = Response.data.defaultActive
           _this.show = true
+          _this.handleSelect(_this.defaultActive)  //初始化激活一次
         }
 
         let catchFunction = function(error) {
         }
         this.$store.dispatch('getData',{ 'url':apiUrl, thenFunction, catchFunction })
+      },
+      /* 通过键值传递侧栏通信api url */
+      handleSelect(key) {
+        console.log(key,this.topNavs[key])
       }
     }
   }
