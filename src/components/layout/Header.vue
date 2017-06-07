@@ -6,10 +6,8 @@
     </a>
     <nav class="navbar">
       <a class="toggle" @click="toggleClick"><i class="fa fa-sliders"></i></a>
-      <el-menu default-active="1" class="menu-navbar" mode="horizontal">
-        <el-menu-item index="1"> <i class="fa fa-archive"></i> 系统</el-menu-item>
-        <el-menu-item index="2"> <i class="fa fa-archive"></i> CMS</el-menu-item>
-        <el-menu-item index="3"> <i class="fa fa-archive"></i> 用户</el-menu-item>
+      <el-menu v-if="show" :default-active="defaultActive" class="menu-navbar" mode="horizontal">
+        <el-menu-item v-for="topNav in topNavs" :key="topNav.name" :index="topNav.name"> <i :class="topNav.icon"></i> {{ topNav.title }}</el-menu-item>
       </el-menu>
     </nav>
   </header>
@@ -17,6 +15,13 @@
 <script>
   export default {
     name: 'header',
+    data() {
+      return {
+        topNavs:null,
+        defaultActive:null,
+        show:false,
+      }
+    },
     created() {
       this.initData()
     },
@@ -28,7 +33,9 @@
         let _this = this
         let apiUrl = this.$store.state.mainData.apiUrl.topNav
         let thenFunction = function(Response) {
-          console.log(Response.data)
+          _this.topNavs = Response.data.list
+          _this.defaultActive = Response.data.defaultActive
+          _this.show = true
         }
 
         let catchFunction = function(error) {
@@ -78,6 +85,10 @@
         }
       }
       >.menu-navbar{
+        >.is-active{
+          background-color: #d73925;
+          border-bottom: 2px solid #fff;
+        }
         >.el-menu-item{
           line-height: 50px!important;
           height: 50px!important;
