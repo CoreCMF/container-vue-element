@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper skin-red" :class="{ hideSidebar: hideSidebar, openSidebar: openSidebar }">
-    <layoutHeader v-on:sidebar="toggleClick"/>
+    <layoutHeader @sidebar="toggleClick"/>
     <layoutSidebar/>
     <div class="layout-main" @click="closeSidebar">
       <layout-breadcrumb/>
