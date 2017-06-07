@@ -23,6 +23,26 @@
           <template slot="title">选项4</template>
           <el-menu-item index="2-4-1">选项1</el-menu-item>
         </el-submenu>
+        <el-submenu index="2-4">
+          <template slot="title">选项4</template>
+          <el-menu-item index="2-4-1">选项1</el-menu-item>
+        </el-submenu>
+        <el-submenu index="2-4">
+          <template slot="title">选项4</template>
+          <el-menu-item index="2-4-1">选项1</el-menu-item>
+        </el-submenu>
+        <el-submenu index="2-4">
+          <template slot="title">选项4</template>
+          <el-menu-item index="2-4-1">选项1</el-menu-item>
+        </el-submenu>
+        <el-submenu index="2-4">
+          <template slot="title">选项4</template>
+          <el-menu-item index="2-4-1">选项1</el-menu-item>
+        </el-submenu>
+        <el-submenu index="2-4">
+          <template slot="title">选项4</template>
+          <el-menu-item index="2-4-1">选项1</el-menu-item>
+        </el-submenu>
       </el-submenu>
       <el-submenu index="3">
        <template slot="title"><i class="el-icon-message"></i><span>Dashboard</span></template>
@@ -41,7 +61,7 @@
       <el-menu-item index="2">导航二</el-menu-item>
       <el-menu-item index="3">导航三</el-menu-item>
       <template v-for="(menu, key, index) in menus">
-        <el-menu-item v-if="menu.subMenus" index="3">导航三a</el-menu-item>
+        <subMenu v-if="menu.subMenus"/>
         <el-menu-item v-if="!menu.subMenus" :index="menu.path">
           <i :class="menu.icon"></i><span> {{ menu.title }}</span>
         </el-menu-item>
