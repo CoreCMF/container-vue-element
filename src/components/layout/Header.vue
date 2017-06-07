@@ -45,7 +45,8 @@
       },
       /* 通过键值传递侧栏通信api url */
       handleSelect(key) {
-        console.log(key,this.topNavs[key])
+        let apiUrl = this.topNavs[key].apiUrl
+        this.$store.dispatch('setSidebar', apiUrl)
       }
     }
   }
