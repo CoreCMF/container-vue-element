@@ -1,68 +1,8 @@
 <template>
-  <el-menu :unique-opened="true" default-active="1-4-1" theme="dark" class="sidebar-menu" :router="true">
-      <el-submenu index="1">
-          <template slot="title"><i class="el-icon-message"></i><span>Dashboard</span></template>
-          <el-menu-item index="1-1">选项1</el-menu-item>
-          <el-menu-item index="1-2">选项2</el-menu-item>
-          <el-menu-item index="1-3">选项3</el-menu-item>
-          <el-submenu index="1-4">
-            <template slot="title">选项4</template>
-            <el-menu-item index="1-4-1">选项1</el-menu-item>
-          </el-submenu>
-      </el-submenu>
-      <el-submenu index="2">
-        <template slot="title"><i class="el-icon-message"></i><span>Dashboard</span></template>
-        <el-menu-item-group title="分组一">
-          <el-menu-item index="2-1">选项1</el-menu-item>
-          <el-menu-item index="2-2">选项2</el-menu-item>
-        </el-menu-item-group>
-        <el-menu-item-group title="分组2">
-          <el-menu-item index="2-3">选项3</el-menu-item>
-        </el-menu-item-group>
-        <el-submenu index="2-4">
-          <template slot="title">选项4</template>
-          <el-menu-item index="2-4-1">选项1</el-menu-item>
-        </el-submenu>
-        <el-submenu index="2-4">
-          <template slot="title">选项4</template>
-          <el-menu-item index="2-4-1">选项1</el-menu-item>
-        </el-submenu>
-        <el-submenu index="2-4">
-          <template slot="title">选项4</template>
-          <el-menu-item index="2-4-1">选项1</el-menu-item>
-        </el-submenu>
-        <el-submenu index="2-4">
-          <template slot="title">选项4</template>
-          <el-menu-item index="2-4-1">选项1</el-menu-item>
-        </el-submenu>
-        <el-submenu index="2-4">
-          <template slot="title">选项4</template>
-          <el-menu-item index="2-4-1">选项1</el-menu-item>
-        </el-submenu>
-        <el-submenu index="2-4">
-          <template slot="title">选项4</template>
-          <el-menu-item index="2-4-1">选项1</el-menu-item>
-        </el-submenu>
-      </el-submenu>
-      <el-submenu index="3">
-       <template slot="title"><i class="el-icon-message"></i><span>Dashboard</span></template>
-        <el-menu-item-group title="分组一">
-          <el-menu-item index="3-1">选项1</el-menu-item>
-          <el-menu-item index="3-2">选项2</el-menu-item>
-        </el-menu-item-group>
-        <el-menu-item-group title="分组2">
-          <el-menu-item index="3-3">选项3</el-menu-item>
-        </el-menu-item-group>
-        <el-submenu index="3-4">
-          <template slot="title">选项4</template>
-          <el-menu-item index="3-4-1">选项1</el-menu-item>
-        </el-submenu>
-      </el-submenu>
-      <el-menu-item index="2">导航二</el-menu-item>
-      <el-menu-item index="3">导航三</el-menu-item>
+  <el-menu :unique-opened="true" default-active="" theme="dark" class="sidebar-menu" :router="true">
       <template v-for="(menu, key, index) in menus">
-        <subMenu v-if="menu.subMenus"/>
-        <el-menu-item v-if="!menu.subMenus" :index="menu.path">
+        <subMenu v-if="menu.subMenus" :data="menu"/>
+        <el-menu-item v-if="!menu.subMenus" :index="menu.path" class="top-menu-item">
           <i :class="menu.icon"></i><span> {{ menu.title }}</span>
         </el-menu-item>
       </template>
@@ -95,7 +35,6 @@
         let apiUrl = this.apiUrl
         let thenFunction = function(Response) {
           _this.menus = Response.data
-          console.log(_this.menus);
         }
         this.$store.dispatch('getData',{ apiUrl, thenFunction })
       }
@@ -122,6 +61,11 @@
     background-color: #222d32!important;
     >.is-active{
       >.el-submenu__title{
+        border-left-color: #dd4b39;
+      }
+    }
+    >.top-menu-item{
+      &.is-active{
         border-left-color: #dd4b39;
       }
     }

@@ -104,6 +104,25 @@
       >.sidebar-menu {
         width:50px;
         overflow-x:visible;
+        >.top-menu-item{
+          display: -webkit-box;
+          >span{
+            display: none;
+          }
+        }
+        >.top-menu-item:hover{
+            >span{
+              margin-left: 35px;
+              -moz-box-flex:1.0;
+              -webkit-box-flex: 1.0;
+              display: block;
+            }
+            background-color: #222d32;
+            width: 230px;
+            border-top-right-radius: 4px;
+            border-bottom-right-radius: 4px;
+
+        }
         >.el-submenu{
           >.el-submenu__title{
             >span{
@@ -120,7 +139,7 @@
           &:hover{
             >.el-submenu__title{
               >span{
-                margin-left: 22px;
+                margin-left: 35px;
                 -moz-box-flex:1.0;
                 -webkit-box-flex: 1.0;
                 display: block;
