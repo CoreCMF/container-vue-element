@@ -65,6 +65,9 @@
       }
     }
     >.top-menu-item{
+      >i{
+        margin-left: -5px;
+      }
       &.is-active{
         border-left-color: #dd4b39;
       }
@@ -73,6 +76,9 @@
   .el-submenu__title{
     height: 44px!important;
     line-height: 44px!important;
+    >i{
+      margin-left: -5px;
+    }
   }
   .el-menu-item{
     height: 44px!important;
