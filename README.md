@@ -21,11 +21,19 @@ store.state.container = { template: '<cve-layout/>' }
 ```
 {
   "apiUrl":{
-    "logout":"http://corecmf.dev/admin/logout",
-    "login":"http://corecmf.dev/admin/login",
     "topNav":"http://corecmf.dev/api/admin/nav/top"
   }
 }
+2、在config下面增加 topNavActive(默认激活顶部菜单)
+```
+{
+  "config":{
+    "topNavActive":"admin"
+  }
+}
+```
+3、apiUrl>topNav通信地址数据返回要求
+```
 ```
 
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).

@@ -30,13 +30,13 @@
         this.$emit('sidebar')
       },
       initData() {
+        this.defaultActive = this.$store.state.mainData.config.topNavActive
         let _this = this
         let apiUrl = this.$store.state.mainData.apiUrl.topNav
         let thenFunction = function(Response) {
-          _this.topNavs = Response.data.list
-          _this.defaultActive = Response.data.defaultActive
+          _this.topNavs = Response.data
           _this.show = true
-          _this.handleSelect(_this.defaultActive)  //初始化激活一次
+          _this.handleSelect(_this.defaultActive)  //初始化时激活获取侧栏数据
         }
         this.$store.dispatch('getData',{ apiUrl, thenFunction })
       },
