@@ -1,5 +1,5 @@
 <template>
-  <el-menu :unique-opened="true" default-active="" theme="dark" class="sidebar-menu" :router="true">
+  <el-menu :unique-opened="true" default-active="" @select="handleSelect" theme="dark" class="sidebar-menu" :router="true">
       <template v-for="(menu, key, index) in menus">
         <subMenu v-if="menu.subMenus" :data="menu"/>
         <el-menu-item v-if="!menu.subMenus" :index="menu.path" class="top-menu-item">
@@ -37,6 +37,9 @@
           _this.menus = Response.data
         }
         this.$store.dispatch('getData',{ apiUrl, thenFunction })
+      },
+      handleSelect(key) {
+        console.log(key,this.$route);
       }
     }
   }

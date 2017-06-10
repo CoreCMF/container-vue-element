@@ -56,29 +56,24 @@ store.state.container = { template: '<cve-layout/>' }
 }
 ```
 4、apiUrl>topNav => apiUrl 侧栏通信地址数据返回要求
- 1、subMenus子菜单信息（可以多级）（包含subMenus的侧栏apiUrl、path自动失效）
+ 1、subMenus子菜单信息（可以多级）（包含subMenus的侧栏path自动失效）
  2、path 前端访问路径
- 3、apiUrl访问见面数据通信地址
- 4、侧栏通信apiurl数据结构要求（请到对应的buider索引组件插件查看）
 ```
 {
     "0": {
         "title": "首页 Dashboard",
         "icon": "fa fa-dashboard",
         "path": "/admin/dashboard",
-        "apiUrl": "http://corecmf.dev/api/admin/dashboard/dashboard"
     },
     "1": {
         "title": "系统功能",
         "icon": "fa fa-cog",
         "path": "",
-        "apiUrl": null,
         "subMenus": {
             "2": {
                 "title": "系统设置",
                 "icon": "fa fa-wrench",
                 "path": "/admin/system/system",
-                "apiUrl": "http://corecmf.dev/api/admin/system/system"
             },
         }
     },
