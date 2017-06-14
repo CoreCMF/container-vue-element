@@ -53,6 +53,9 @@
     display: -webkit-flex;
     display: flex;
     flex: 0 0 auto;
+    position: fixed;
+    width: 100%;
+    z-index: 99999;
     >.logo{
       flex: 0 0 auto;
       height: 50px;

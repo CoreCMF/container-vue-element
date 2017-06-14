@@ -63,6 +63,7 @@
     flex-direction: column;
   }
   .layout-main{
+    margin-top:50px;
     flex: 1 0 auto;
     display: -webkit-flex;
     display: flex;
@@ -176,6 +177,7 @@
       transform: translate(-230px, 0);
     }
     .layout-main{
+      margin-top:100px;
       margin-left: 0;
     }
     .main-header{
