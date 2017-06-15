@@ -1,16 +1,16 @@
-# builder-vue
+# container-vue-element
 
 > a vue admin packages
 
 ## Build Setup
 ```
-npm install builder-vue-element -D
+npm install container-vue-element -D
 npm install builder-vue -D
 npm install element-ui -D
 
 ```
 ## 配置
-1、引入builder-vue-element容器组件
+1、引入container-vue-element容器组件
 ```
 import ContainerVueElement from 'container-vue-element'
 Vue.use(ContainerVueElement)
