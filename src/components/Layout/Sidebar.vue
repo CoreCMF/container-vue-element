@@ -50,7 +50,7 @@
     top: 50px;
     bottom:0;
     overflow-x: hidden;
-    z-index: 99999;
+    z-index: 1001;
     transition: transform .3s ease-in-out,width 0.3s ease-in-out;
     @include scrollBar;
   }
