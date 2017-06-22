@@ -1,8 +1,10 @@
 import Layout from './components/Layout.vue'
+import Login from './components/login.vue'
 import 'element-ui/lib/theme-default/index.css'
 
 const components = [
-  Layout
+  Layout,
+  Login
 ]
 
 const install = function (Vue, opts = {}) {
