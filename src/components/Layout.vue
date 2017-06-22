@@ -16,7 +16,7 @@
   import layoutContent    from './Layout/Content.vue'
   import layoutFooter     from './Layout/Footer.vue'
   export default {
-    name: 'layout',
+    name: 'cve-layout',
     components: {
       layoutHeader,
       layoutSidebar,

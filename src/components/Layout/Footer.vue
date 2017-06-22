@@ -5,7 +5,7 @@
 </template>
 <script>
   export default {
-    name: 'footer'
+    name: 'cve-footer'
   }
 </script>
 <style lang="scss" scoped>

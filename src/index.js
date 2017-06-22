@@ -7,7 +7,7 @@ const components = [
 
 const install = function (Vue, opts = {}) {
   components.map(component => {
-    Vue.component('cve-'+component.name, component)
+    Vue.component(component.name, component)
   })
 }
 

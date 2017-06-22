@@ -10,7 +10,7 @@
 </template>
 <script>
   export default {
-    name: 'breadcrumb'
+    name: 'cve-breadcrumb'
   }
 </script>
 <style lang="scss" scoped>

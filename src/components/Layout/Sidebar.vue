@@ -12,7 +12,7 @@
   import { mapState } from 'vuex'
   import subMenu from './SubMenu.vue'
   export default {
-    name: 'sidebar',
+    name: 'cve-sidebar',
     components: {
         subMenu
     },

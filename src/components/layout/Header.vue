@@ -14,7 +14,7 @@
 </template>
 <script>
   export default {
-    name: 'header',
+    name: 'cve-header',
     data() {
       return {
         topNavs:null,

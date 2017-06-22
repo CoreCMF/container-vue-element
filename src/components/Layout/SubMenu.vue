@@ -11,7 +11,7 @@
 </template>
 <script>
   export default {
-    name: 'sidebar',
+    name: 'cve-sidebar',
     beforeCreate: function () {
       this.$options.components.subMenu = require('./SubMenu.vue')
     },

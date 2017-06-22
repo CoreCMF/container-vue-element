@@ -5,7 +5,7 @@
 </template>
 <script>
   export default {
-    name: 'content'
+    name: 'cve-content'
   }
 </script>
 <style lang="scss" scoped>
