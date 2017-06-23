@@ -10,6 +10,7 @@
   </div>
 </template>
 <script>
+  import { mapState } from 'vuex'
   import layoutHeader    from './Layout/Header.vue'
   import layoutSidebar    from './Layout/Sidebar.vue'
   import layoutBreadcrumb from './Layout/Breadcrumb.vue'
@@ -31,7 +32,37 @@
         openSidebar:false,
       }
     },
+    computed: {
+      ...mapState({
+        authStatus: 'authStatus',
+        loginRouterNmae: state => state.mainData.config.loginRouterNmae,
+        authCheckApiUrl: state => state.mainData.apiUrl.authCheck
+      }),
+    },
+    watch: {
+      authStatus: 'authCheck'
+    },
     methods: {
+      authCheck() {
+        if (!this.authStatus) {
+          /**
+           * [thenFunction 如果登录没有成功跳转到登录页面]
+           */
+          let _this = this
+          let thenFunction = (Response) => {
+            let loginState = Response.data.state
+            let loginRouterNmae = _this.loginRouterNmae
+            if (!loginState) {
+              _this.$router.push({name:loginRouterNmae})
+            }
+          }
+          let apiUrl = this.authCheckApiUrl
+          // 等待三秒验证登陆状态
+          setTimeout(() =>  {
+            this.$store.dispatch('getData',{ apiUrl, thenFunction})
+          }, 3000);
+        }
+      },
       /* [toggleClick 根据屏幕宽度 折叠或者收缩侧栏] */
       toggleClick() {
         let offsetWidth = document.body.offsetWidth;
