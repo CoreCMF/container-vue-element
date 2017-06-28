@@ -8,31 +8,24 @@
 <script>
   export default {
     name: 'cve-login',
-    data() {
-      return {
-        data: null,
-      }
-    },
     computed: {
-      apiUrl() {
-        return this.$route.meta.apiUrl
+      callbackData() {
+        return this.$store.state.callbackData
+      },
+      homeRouterNmae() {
+        return this.$store.state.mainData.config.homeRouterNmae
       }
-    },
-    created () {
-      // this.initData()
     },
     watch: {
-      // apiUrl: 'initData',
+      callbackData: 'thenFunction'
     },
     methods: {
-      initData() {
-        let _this = this
-        let apiUrl = this.apiUrl
-        let thenFunction = function(Response) {
-          _this.data = Response.data
-          console.log(_this.data);
+      thenFunction() {
+        if (this.callbackData.state) {
+          setTimeout(() =>  {
+            this.$router.push({name:this.homeRouterNmae})
+          }, 3000);
         }
-        this.$store.dispatch('getData',{ apiUrl, thenFunction})
       }
     }
   }

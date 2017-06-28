@@ -44,7 +44,7 @@
 <style lang="scss">
   @import  './../../assets/sass/mixin.scss';
   .sidebar-menu {
-    position: fixed;
+    position: fixed!important;
     width:230px;
     min-height: 100%;
     top: 50px;
