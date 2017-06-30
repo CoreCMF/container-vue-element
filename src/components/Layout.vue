@@ -60,7 +60,7 @@
           // 等待三秒验证登陆状态
           setTimeout(() =>  {
             this.$store.dispatch('getData',{ apiUrl, thenFunction})
-          }, 3000);
+          }, 1000);
         }
       },
       /* [toggleClick 根据屏幕宽度 折叠或者收缩侧栏] */
