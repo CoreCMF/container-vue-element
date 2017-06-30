@@ -24,7 +24,7 @@
         if (this.callbackData.state) {
           setTimeout(() =>  {
             this.$router.push({name:this.homeRouterNmae})
-          }, 3000);
+          }, 500);
         }
       }
     }
