@@ -21,7 +21,7 @@
     },
     methods: {
       thenFunction() {
-        if (this.callbackData.state) {
+        if (this.callbackData.auth) {
           setTimeout(() =>  {
             this.$router.push({name:this.homeRouterNmae})
           }, 500);
