@@ -1,7 +1,7 @@
 <template>
 <div class="login-body">
   <div class="login-item">
-    <bve-index/>
+    <router-view></router-view>
   </div>
 </div>
 </template>
