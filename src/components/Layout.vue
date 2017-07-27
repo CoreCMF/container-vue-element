@@ -34,23 +34,23 @@
     },
     computed: {
       ...mapState({
-        authStatus: 'authStatus',
+        callbackError: 'callbackError',
         loginRouterNmae: state => state.mainData.config.loginRouterNmae,
         authCheckApiUrl: state => state.mainData.apiUrl.authCheck
       }),
     },
     watch: {
-      authStatus: 'authCheck'
+      callbackError: 'authCheck'
     },
     methods: {
       authCheck() {
-        if (!this.authStatus) {
           /**
            * [thenFunction 如果登录没有成功跳转到登录页面]
            */
           let _this = this
+          let message = this.$message
           let thenFunction = (Response) => {
-            let loginState = Response.data.state
+            let loginState = Response.data.auth
             let loginRouterNmae = _this.loginRouterNmae
             if (!loginState) {
               _this.$router.push({name:loginRouterNmae})
@@ -59,9 +59,8 @@
           let apiUrl = this.authCheckApiUrl
           // 等待三秒验证登陆状态
           setTimeout(() =>  {
-            this.$store.dispatch('getData',{ apiUrl, thenFunction})
+            this.$store.dispatch('getData',{ apiUrl, thenFunction, message})
           }, 1000);
-        }
       },
       /* [toggleClick 根据屏幕宽度 折叠或者收缩侧栏] */
       toggleClick() {
