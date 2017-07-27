@@ -56,10 +56,13 @@
               _this.$router.push({name:loginRouterNmae})
             }
           }
+          let catchFunction = (error) => {
+
+          }
           let apiUrl = this.authCheckApiUrl
           // 等待三秒验证登陆状态
           setTimeout(() =>  {
-            this.$store.dispatch('getData',{ apiUrl, thenFunction, message})
+            this.$store.dispatch('getData',{ apiUrl, thenFunction, message, catchFunction})
           }, 1000);
       },
       /* [toggleClick 根据屏幕宽度 折叠或者收缩侧栏] */
