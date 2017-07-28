@@ -50,14 +50,12 @@
           let _this = this
           let message = this.$message
           let thenFunction = (Response) => {
-            let loginState = Response.data.auth
-            let loginRouterNmae = _this.loginRouterNmae
-            if (!loginState) {
-              _this.$router.push({name:loginRouterNmae})
+            if (!Response.data.auth) {
+              _this.$router.push({name:_this.loginRouterNmae})
             }
           }
           let catchFunction = (error) => {
-
+            _this.$router.push({name:_this.loginRouterNmae})
           }
           let apiUrl = this.authCheckApiUrl
           // 等待三秒验证登陆状态
