@@ -21,6 +21,9 @@
         menus:null,
       }
     },
+    created() {
+      this.initData()
+    },
     watch: {
       apiUrl:'initData'
     },
@@ -31,12 +34,14 @@
     },
     methods: {
       initData(){
-        let _this = this
-        let apiUrl = this.apiUrl
-        let thenFunction = function(Response) {
-          _this.menus = Response.data.main.menus
+        if (this.apiUrl) {
+          let _this = this
+          let apiUrl = this.apiUrl
+          let thenFunction = function(Response) {
+            _this.menus = Response.data.main.menus
+          }
+          this.$store.dispatch('getData',{ apiUrl, thenFunction })
         }
-        this.$store.dispatch('getData',{ apiUrl, thenFunction })
       }
     }
   }
