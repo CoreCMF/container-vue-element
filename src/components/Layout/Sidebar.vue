@@ -21,9 +21,6 @@
         menus:null,
       }
     },
-    created() {
-      this.initData()
-    },
     watch: {
       apiUrl:'initData'
     },
