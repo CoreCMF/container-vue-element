@@ -34,7 +34,7 @@
         let _this = this
         let apiUrl = this.$store.state.mainData.apiUrl.topNav
         let thenFunction = function(Response) {
-          _this.topNavs = Response.data
+          _this.topNavs = Response.data.main.topNavs
           _this.show = true
           _this.handleSelect(_this.defaultActive)  //初始化时激活获取侧栏数据
         }

@@ -37,7 +37,7 @@
         let _this = this
         let apiUrl = this.apiUrl
         let thenFunction = function(Response) {
-          _this.menus = Response.data
+          _this.menus = Response.data.main.menus
         }
         this.$store.dispatch('getData',{ apiUrl, thenFunction })
       }
