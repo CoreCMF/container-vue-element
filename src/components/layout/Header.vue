@@ -5,10 +5,15 @@
       <span class="logo-lg"><b>Core</b>CMF</span>
     </a>
     <nav class="navbar">
-      <a class="toggle" @click="toggleClick"><i class="fa fa-sliders"></i></a>
-      <el-menu v-if="show" :default-active="defaultActive" @select="handleSelect" class="menu-navbar" mode="horizontal">
-        <el-menu-item v-for="topNav in topNavs" :key="topNav.name" :index="topNav.name"> <i :class="topNav.icon"></i> {{ topNav.title }}</el-menu-item>
-      </el-menu>
+      <div class="left">
+        <a class="toggle" @click="toggleClick"><i class="fa fa-sliders"></i></a>
+        <el-menu v-if="show" :default-active="defaultActive" @select="handleSelect" class="menu-navbar" mode="horizontal">
+          <el-menu-item v-for="topNav in topNavs" :key="topNav.name" :index="topNav.name"> <i :class="topNav.icon"></i> {{ topNav.title }}</el-menu-item>
+        </el-menu>
+      </div>
+      <div class="right">
+        <a class="loginOut" @click="loginOut">用户退出</a>
+      </div>
     </nav>
   </header>
 </template>
@@ -44,6 +49,13 @@
       handleSelect(key) {
         let apiUrl = this.topNavs[key].apiUrl
         this.$store.dispatch('setSidebar', apiUrl)
+      },
+      loginOut() {
+          let apiUrl = this.$store.state.mainData.apiUrl.topNav
+          let thenFunction = function(Response) {
+              console.log(Response);
+          }
+          this.$store.dispatch('getData',{ apiUrl, thenFunction })
       }
     }
   }
@@ -82,30 +94,47 @@
       min-height: 50px;
       border-radius: 0;
       border: none;
-      >.toggle{
-        padding: 9px;
-        font-size: 22px;
-        color: #fff;
-        &:hover{
-          background-color: #d73925;
-        }
-      }
-      >.menu-navbar{
-        >.is-active{
-          background-color: #d73925;
-          border-bottom: 2px solid #fff;
-        }
-        >.el-menu-item{
-          line-height: 50px!important;
-          height: 50px!important;
+      justify-content: space-between;
+      >.left{
+        display: -webkit-flex;
+        display: flex;
+        >.toggle{
+          padding: 9px;
+          font-size: 22px;
           color: #fff;
-          border-bottom: 2px solid transparent;
           &:hover{
+            background-color: #d73925;
+          }
+        }
+        >.menu-navbar{
+          >.is-active{
             background-color: #d73925;
             border-bottom: 2px solid #fff;
           }
+          >.el-menu-item{
+            line-height: 50px!important;
+            height: 50px!important;
+            color: #fff;
+            border-bottom: 2px solid transparent;
+            &:hover{
+              background-color: #d73925;
+              border-bottom: 2px solid #fff;
+            }
+          }
         }
       }
+      .right{
+        display: -webkit-flex;
+        display: flex;
+        >.loginOut{
+          padding: 15px;
+          color: #fff;
+          &:hover{
+            background-color: #d73925;
+          }
+        }
+      }
+
     }
   }
 </style>
