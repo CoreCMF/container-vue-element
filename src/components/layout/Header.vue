@@ -18,26 +18,33 @@
   </header>
 </template>
 <script>
+  import { mapState } from 'vuex'
   export default {
     name: 'cve-header',
     data() {
       return {
         topNavs:null,
-        defaultActive:null,
         show:false,
       }
     },
     created() {
       this.initData()
     },
+    computed: {
+      ...mapState({
+        loginRouterNmae: state => state.mainData.config.loginRouterNmae,
+        topNavApiUrl: state => state.mainData.apiUrl.topNav,
+        logoutApiUrl: state => state.mainData.apiUrl.logout,
+        defaultActive: state => state.mainData.config.topNavActive,
+      }),
+    },
     methods: {
       toggleClick() {
         this.$emit('sidebar')
       },
       initData() {
-        this.defaultActive = this.$store.state.mainData.config.topNavActive
         let _this = this
-        let apiUrl = this.$store.state.mainData.apiUrl.topNav
+        let apiUrl = this.topNavApiUrl
         let thenFunction = function(Response) {
           _this.topNavs = Response.data.main.topNavs
           _this.show = true
@@ -51,11 +58,15 @@
         this.$store.dispatch('setSidebar', apiUrl)
       },
       loginOut() {
-          let apiUrl = this.$store.state.mainData.apiUrl.topNav
+          let _this = this
+          let message = this.$message
+          let apiUrl = this.logoutApiUrl
           let thenFunction = function(Response) {
-              console.log(Response);
+            if (!Response.data.auth) {
+              _this.$router.push({name:_this.loginRouterNmae})
+            }
           }
-          this.$store.dispatch('getData',{ apiUrl, thenFunction })
+          this.$store.dispatch('getData',{ apiUrl, thenFunction, message })
       }
     }
   }
