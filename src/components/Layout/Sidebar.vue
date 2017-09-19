@@ -95,6 +95,7 @@
   }
   .el-menu--dark .el-menu-item, .el-menu--dark .el-submenu__title{
     border-left: 3px solid transparent;
+    min-width: auto;
     color: #b8c7ce;
   }
   .el-menu--horizontal.el-menu--dark .el-submenu .el-menu-item.is-active, .el-menu-item.is-active{
