@@ -1,7 +1,7 @@
 <template>
   <el-menu :unique-opened="true" default-active="" theme="dark" class="sidebar-menu" :router="true">
       <template v-for="(menu, key, index) in menus">
-        <subMenu v-if="menu.subMenus" :data="menu"/>
+        <subMenu v-if="menu.subMenus" :data="menu" :index="key"/>
         <el-menu-item v-if="!menu.subMenus" :index="menu.path" class="top-menu-item">
           <i :class="menu.icon"></i><span> {{ menu.title }}</span>
         </el-menu-item>
