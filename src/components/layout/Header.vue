@@ -71,7 +71,10 @@
     }
   }
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
+  .el-menu{
+    background-color:#dd4b39;
+  }
   .main-header{
     display: -webkit-flex;
     display: flex;
@@ -138,7 +141,7 @@
         display: -webkit-flex;
         display: flex;
         >.loginOut{
-          padding: 15px;
+          padding: 14px;
           color: #fff;
           &:hover{
             background-color: #d73925;
