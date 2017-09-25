@@ -86,7 +86,7 @@
       flex: 0 0 auto;
       height: 50px;
       font-size: 20px;
-      line-height: 50px;
+      line-height: 48px;
       text-align: center;
       width: 230px;
       min-width: 230px;
