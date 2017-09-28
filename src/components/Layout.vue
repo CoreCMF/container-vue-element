@@ -123,13 +123,13 @@
     .hideSidebar {
       >.main-header{
         >.logo{
-          width: 50px;
-          min-width: 50px;
+          width: 50px!important;
+          min-width: 50px!important;
           >.logo-mini{
-            display: block;
+            display: block!important;
           }
           >.logo-lg{
-            display: none;
+            display: none!important;
           }
         }
       }
