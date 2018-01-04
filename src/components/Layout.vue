@@ -58,10 +58,7 @@
             _this.$router.push({name:_this.loginRouterNmae})
           }
           let apiUrl = this.authCheckApiUrl
-          // 等待三秒验证登陆状态
-          setTimeout(() =>  {
-            this.$store.dispatch('getData',{ apiUrl, thenFunction, message, catchFunction})
-          }, 1000);
+          this.$store.dispatch('getData',{ apiUrl, thenFunction, message, catchFunction})
       },
       /* [toggleClick 根据屏幕宽度 折叠或者收缩侧栏] */
       toggleClick() {
