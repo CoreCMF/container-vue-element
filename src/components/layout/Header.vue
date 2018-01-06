@@ -122,35 +122,23 @@
         display: -webkit-flex;
         display: flex;
         >.toggle{
-          padding: 9px;
+          line-height: 58px;
           font-size: 28px;
+          padding-right: 14px;
+          padding-left: 14px;
           color: #fff;
           &:hover{
             background-color: #d73925;
           }
         }
-        // >.menu-navbar{
-        //   >.is-active{
-        //     background-color: #d73925;
-        //     border-bottom: 2px solid #fff;
-        //   }
-        //   >.el-menu-item{
-        //     line-height: 60px!important;
-        //     height: 60px!important;
-        //     color: #fff;
-        //     border-bottom: 2px solid transparent;
-        //     &:hover{
-        //       background-color: #d73925;
-        //       border-bottom: 2px solid #fff;
-        //     }
-        //   }
-        // }
       }
       .right{
         display: -webkit-flex;
         display: flex;
         >.loginOut{
-          padding: 14px;
+          line-height: 58px;
+          padding-right: 14px;
+          padding-left: 14px;
           color: #fff;
           &:hover{
             background-color: #d73925;
