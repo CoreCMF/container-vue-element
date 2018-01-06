@@ -4,7 +4,7 @@
       <template v-for="(menu, key, index) in data.subMenus">
         <subMenu v-if="menu.subMenus" :data="menu" :index="key"/>
         <el-menu-item v-if="!menu.subMenus" :index="menu.path">
-          <i :class="menu.icon"></i><span> {{ menu.title }}</span>
+          <i :class="menu.icon"></i><span slot="title"> {{ menu.title }}</span>
         </el-menu-item>
       </template>
   </el-submenu>
@@ -23,9 +23,6 @@
         index: {
             default: ''
         },
-    },
-    methods: {
-
     }
   }
 </script>
