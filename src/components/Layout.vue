@@ -96,7 +96,7 @@
     flex-direction: column;
   }
   .layout-container{
-    margin-top:50px;
+    margin-top:61px;
     flex: 1 0 auto;
     display: -webkit-flex;
     display: flex;
@@ -150,11 +150,11 @@
   }
   @media (max-width: $screen-xs-max) {
     .sidebar-menu{
-      top: 100px!important;
+      top: 122px!important;
       transform: translate(-230px, 0);
     }
     .layout-container{
-      margin-top:100px;
+      margin-top:122px;
       margin-left: 0;
     }
     .main-header{
@@ -166,7 +166,7 @@
     /* 收缩侧栏后的样式begin */
     .openSidebar {
       >.sidebar-menu{
-        top: 100px;
+        top: 122px;
         transform: translate( 0, 0);
       }
       .layout-container{

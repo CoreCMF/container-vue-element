@@ -67,7 +67,7 @@
     position: fixed!important;
     width:230px;
     min-height: 100%;
-    top: 50px;
+    top: 61px;
     bottom:0;
     overflow-x: hidden;
     z-index: 1001;
