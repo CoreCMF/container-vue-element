@@ -67,8 +67,8 @@
       toggleClick() {
         let offsetWidth = document.body.offsetWidth;
         if (offsetWidth > this.collapseScreenSize) {
-          this.isCollapse = !this.isCollapse
           this.hideSidebar = !this.hideSidebar
+          this.isCollapse = this.hideSidebar? true :false
         }else{
           this.isCollapse = false
           this.openSidebar = !this.openSidebar
