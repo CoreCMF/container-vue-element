@@ -16,6 +16,6 @@
 <style lang="scss" scoped>
   .layout-breadcrumb{
     flex: 0 0 auto;
-    padding: 10px 15px 0;
+    padding: 20px 15px 0;
   }
 </style>

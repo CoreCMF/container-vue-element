@@ -4,7 +4,7 @@
     <layoutSidebar :isCollapse="isCollapse"/>
     <div class="layout-container" @click="closeSidebar">
         <el-container>
-          <el-header><layout-breadcrumb/></el-header>
+          <!-- <el-header><layout-breadcrumb/></el-header> -->
           <el-main class="layout-main"><layout-content/></el-main>
           <el-footer><layout-footer/></el-footer>
         </el-container>
