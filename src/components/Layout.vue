@@ -1,12 +1,14 @@
 <template>
   <div class="wrapper skin-red" :class="{ hideSidebar: hideSidebar, openSidebar: openSidebar }">
     <layoutHeader @sidebar="toggleClick"/>
-    <layoutSidebar/>
-    <div class="layout-main" @click="closeSidebar">
-      <layout-breadcrumb/>
-      <layout-content/>
-      <layout-footer/>
-    </div>
+    <layoutSidebar :isCollapse="isCollapse"/>
+    <div class="layout-container" @click="closeSidebar">
+        <el-container>
+          <!-- <el-header><layout-breadcrumb/></el-header> -->
+          <el-main class="layout-main"><layout-content/></el-main>
+          <el-footer><layout-footer/></el-footer>
+        </el-container>
+      </div>
   </div>
 </template>
 <script>
@@ -30,6 +32,7 @@
         collapseScreenSize:768,
         hideSidebar:false,
         openSidebar:false,
+        isCollapse:false,
       }
     },
     computed: {
@@ -65,7 +68,9 @@
         let offsetWidth = document.body.offsetWidth;
         if (offsetWidth > this.collapseScreenSize) {
           this.hideSidebar = !this.hideSidebar
+          this.isCollapse = this.hideSidebar? true :false
         }else{
+          this.isCollapse = false
           this.openSidebar = !this.openSidebar
         }
       },
@@ -90,14 +95,17 @@
     display: flex;
     flex-direction: column;
   }
-  .layout-main{
-    margin-top:50px;
+  .layout-container{
+    margin-top:61px;
     flex: 1 0 auto;
     display: -webkit-flex;
     display: flex;
     flex-direction: column;
     margin-left: 230px;
     transition: transform .3s ease-in-out,margin-left 0.3s ease-in-out;
+  }
+  .layout-main{
+    min-height: 275px;
   }
   .skin-red{
     >.main-header{
@@ -120,8 +128,8 @@
     .hideSidebar {
       >.main-header{
         >.logo{
-          width: 50px!important;
-          min-width: 50px!important;
+          width: 65px!important;
+          min-width: 65px!important;
           >.logo-mini{
             display: block!important;
           }
@@ -131,81 +139,22 @@
         }
       }
       >.sidebar-menu {
-        width:50px;
+        width:65px;
         overflow-x:visible;
-        >.top-menu-item{
-          display: -webkit-box;
-          >span{
-            display: none;
-          }
-        }
-        >.top-menu-item:hover{
-            >span{
-              margin-left: 35px;
-              -moz-box-flex:1.0;
-              -webkit-box-flex: 1.0;
-              display: block;
-            }
-            background-color: #222d32;
-            width: 230px;
-            border-top-right-radius: 4px;
-            border-bottom-right-radius: 4px;
-
-        }
-        >.el-submenu{
-          >.el-submenu__title{
-            >span{
-              display: none;
-            }
-            >.el-submenu__icon-arrow{
-              display: none;
-            }
-            display: -webkit-box;
-          }
-          >.el-menu{
-            display: none !important;
-          }
-          &:hover{
-            >.el-submenu__title{
-              >span{
-                margin-left: 35px;
-                -moz-box-flex:1.0;
-                -webkit-box-flex: 1.0;
-                display: block;
-              }
-              >.el-submenu__icon-arrow{
-                padding-top: 5px;
-                display: block;
-              }
-              background-color: #222d32;
-              width: 230px;
-              border-top-right-radius: 4px;
-            }
-            >.el-menu{
-              display: block !important;
-              position: absolute;
-              width: 180px;
-              left: 50px;
-              padding-top: 5px;
-              padding-bottom: 5px;
-              border-bottom-right-radius: 4px;
-            }
-          }
-        }
       }
-      >.layout-main{
-        margin-left: 50px;
+      >.layout-container{
+        margin-left: 65px;
       }
     }
     /* 收缩侧栏后的样式end */
   }
   @media (max-width: $screen-xs-max) {
     .sidebar-menu{
-      top: 100px!important;
+      top: 122px!important;
       transform: translate(-230px, 0);
     }
-    .layout-main{
-      margin-top:100px;
+    .layout-container{
+      margin-top:122px;
       margin-left: 0;
     }
     .main-header{
@@ -217,10 +166,10 @@
     /* 收缩侧栏后的样式begin */
     .openSidebar {
       >.sidebar-menu{
-        top: 100px;
+        top: 122px;
         transform: translate( 0, 0);
       }
-      .layout-main{
+      .layout-container{
         transform: translate(230px, 0);
       }
     }

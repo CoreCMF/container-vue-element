@@ -7,7 +7,16 @@
     <nav class="navbar">
       <div class="left">
         <a class="toggle" @click="toggleClick"><i class="fa fa-sliders"></i></a>
-        <el-menu v-if="show" :default-active="defaultActive" @select="handleSelect" class="menu-navbar" mode="horizontal">
+        <el-menu
+          v-if="show"
+          :default-active="defaultActive"
+          @select="handleSelect"
+          class="menu-navbar"
+          mode="horizontal"
+          background-color="#dd4b39"
+          text-color="#fff"
+          active-text-color="#fff"
+        >
           <el-menu-item v-for="topNav in topNavs" :key="topNav.name" :index="topNav.name"> <i :class="topNav.icon"></i> {{ topNav.title }}</el-menu-item>
         </el-menu>
       </div>
@@ -84,9 +93,9 @@
     z-index: 1001;
     >.logo{
       flex: 0 0 auto;
-      height: 50px;
-      font-size: 20px;
-      line-height: 48px;
+      height: 61px;
+      font-size: 28px;
+      line-height: 58px;
       text-align: center;
       width: 230px;
       min-width: 230px;
@@ -105,7 +114,7 @@
       flex: 1 0 auto;
       display: -webkit-flex;
       display: flex;
-      min-height: 50px;
+      min-height: 61px;
       border-radius: 0;
       border: none;
       justify-content: space-between;
@@ -113,27 +122,13 @@
         display: -webkit-flex;
         display: flex;
         >.toggle{
-          padding: 9px;
-          font-size: 22px;
+          line-height: 58px;
+          font-size: 28px;
+          padding-right: 14px;
+          padding-left: 14px;
           color: #fff;
           &:hover{
             background-color: #d73925;
-          }
-        }
-        >.menu-navbar{
-          >.is-active{
-            background-color: #d73925;
-            border-bottom: 2px solid #fff;
-          }
-          >.el-menu-item{
-            line-height: 50px!important;
-            height: 50px!important;
-            color: #fff;
-            border-bottom: 2px solid transparent;
-            &:hover{
-              background-color: #d73925;
-              border-bottom: 2px solid #fff;
-            }
           }
         }
       }
@@ -141,7 +136,9 @@
         display: -webkit-flex;
         display: flex;
         >.loginOut{
-          padding: 14px;
+          line-height: 58px;
+          padding-right: 14px;
+          padding-left: 14px;
           color: #fff;
           &:hover{
             background-color: #d73925;

@@ -1,6 +1,6 @@
 {
   "name": "container-vue-element",
-  "version": "1.0.10",
+  "version": "1.1.1",
   "description": "element admin vue 饿了么 后台容器\"",
   "main": "./src/index.js",
   "scripts": {
