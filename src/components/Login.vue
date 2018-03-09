@@ -6,6 +6,7 @@
 </div>
 </template>
 <script>
+  import { forIn } from 'lodash'
   export default {
     name: 'cve-login',
     computed: {
@@ -21,7 +22,11 @@
     },
     methods: {
       thenFunction() {
-        if (this.callbackData.auth) {
+        let token = this.callbackData.config.token
+        if (token.status_code == 200) {
+          forIn(token, (value, name) => {
+            localStorage.setItem(name, value)
+          })
           setTimeout(() =>  {
             this.$router.push({name:this.homeRouterNmae})
           }, 500);
