@@ -68,14 +68,13 @@
       },
       loginOut() {
           let _this = this
-          let message = this.$message
           let apiUrl = this.logoutApiUrl
           let thenFunction = function(Response) {
             if (!Response.data.auth) {
               _this.$router.push({name:_this.loginRouterNmae})
             }
           }
-          this.$store.dispatch('getData',{ apiUrl, thenFunction, message })
+          this.$store.dispatch('getData',{ apiUrl, thenFunction })
       }
     }
   }

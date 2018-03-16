@@ -13,6 +13,8 @@
 </template>
 <script>
   import { mapState } from 'vuex'
+  import { isEmpty } from 'lodash'
+  import { Message } from 'element-ui'
   import layoutHeader    from './Layout/Header.vue'
   import layoutSidebar    from './Layout/Sidebar.vue'
   import layoutBreadcrumb from './Layout/Breadcrumb.vue'
@@ -43,25 +45,18 @@
       }),
     },
     watch: {
-      callbackError: 'authCheck'
+     callbackError: 'authCheck'
     },
     methods: {
       authCheck() {
-          /**
-           * [thenFunction 如果登录没有成功跳转到登录页面]
-           */
-          let _this = this
-          let message = this.$message
-          let thenFunction = (Response) => {
-            if (!Response.data.auth) {
-              _this.$router.push({name:_this.loginRouterNmae})
-            }
-          }
-          let catchFunction = (error) => {
-            _this.$router.push({name:_this.loginRouterNmae})
-          }
-          let apiUrl = this.authCheckApiUrl
-          this.$store.dispatch('getData',{ apiUrl, thenFunction, message, catchFunction})
+        let errorData = this.callbackError.response.data
+        if (!isEmpty(errorData.message) && errorData.message == "Unauthenticated.") {
+          Message({
+            message: '没有权限访问！请重新登录。',
+            type: 'warning',
+          })
+          this.$router.push({name:this.loginRouterNmae})
+        }
       },
       /* [toggleClick 根据屏幕宽度 折叠或者收缩侧栏] */
       toggleClick() {
