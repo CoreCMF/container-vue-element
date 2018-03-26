@@ -52,12 +52,11 @@
         this.$emit('sidebar')
       },
       initData() {
-        let _this = this
         let apiUrl = this.topNavApiUrl
-        let thenFunction = function(Response) {
-          _this.topNavs = Response.data.main.topNavs
-          _this.show = true
-          _this.handleSelect(_this.defaultActive)  //初始化时激活获取侧栏数据
+        let thenFunction = data=> {
+          this.topNavs = data.main.topNavs
+          this.show = true
+          this.handleSelect(this.defaultActive)  //初始化时激活获取侧栏数据
         }
         this.$store.dispatch('getData',{ apiUrl, thenFunction })
       },
@@ -67,11 +66,10 @@
         this.$store.dispatch('setSidebar', apiUrl)
       },
       loginOut() {
-          let _this = this
           let apiUrl = this.logoutApiUrl
-          let thenFunction = function(Response) {
-            if (!Response.data.auth) {
-              _this.$router.push({name:_this.loginRouterNmae})
+          let thenFunction = data => {
+            if (!data.auth) {
+              this.$router.push({name:this.loginRouterNmae})
             }
           }
           this.$store.dispatch('getData',{ apiUrl, thenFunction })

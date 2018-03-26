@@ -50,10 +50,9 @@
     methods: {
       initData(){
         if (this.apiUrl) {
-          let _this = this
           let apiUrl = this.apiUrl
-          let thenFunction = function(Response) {
-            _this.menus = Response.data.main.menus
+          let thenFunction = data => {
+            this.menus = data.main.menus
           }
           this.$store.dispatch('getData',{ apiUrl, thenFunction })
         }
